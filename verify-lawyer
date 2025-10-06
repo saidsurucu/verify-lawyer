@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""
+Wrapper script that filters debug output
+"""
+import subprocess
+import sys
+
+# Run the CLI and filter output
+process = subprocess.Popen(
+    [sys.executable, '-m', 'verify_lawyer.cli'] + sys.argv[1:],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    text=True,
+    bufsize=1
+)
+
+# Filter and print output
+for line in process.stdout:
+    # Skip debug/warning lines
+    if any(x in line for x in ['DEBUG:', 'WARNING  ', 'ERROR    [']):
+        continue
+    print(line, end='')
+
+process.wait()
+sys.exit(process.returncode)

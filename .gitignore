@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Environment variables
+.env
+
+# Cache
+.cache/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Development notes
+CLAUDE.md
